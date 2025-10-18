@@ -1,38 +1,16 @@
- // Color palette definition
-        const colorPalette = {
-            G1: '#144955',
-            G2: '#146151',
-            G3: '#498558',
-            G4: '#7faa5e',
-            G5: '#b4ce65',
-            G6: '#cfdd3c'
-        };
-
-        // Color sequence timeline
-        const colors = [
-            { name: 'G6', time: 0 },
-            { name: 'G4', time: 2.5 },
-            { name: 'G6', time: 7.5 },
-            { name: 'G1', time: 9 },
-            { name: 'G6', time: 19 },
-            { name: 'G2', time: 21 },
-            { name: 'G3', time: 23 },
-            { name: 'G4', time: 25 },
-            { name: 'G2', time: 28 },
-            { name: 'G5', time: 30 },
-            { name: 'G1', time: 32.5 },
-            { name: 'G4', time: 36.5 },
-            { name: 'G3', time: 40 },
-            { name: 'G6', time: 43.5 },
-            { name: 'G3', time: 45 }
-        ].map(item => ({ ...item, value: colorPalette[item.name] }));
+ const colors = [
+            { name: 'G1', value: '#144955', time: 0 },
+            { name: 'G2', value: '#146151', time: 2 },
+            { name: 'G3', value: '#498558', time: 4 },
+            { name: 'G4', value: '#7faa5e', time: 6 },
+            { name: 'G5', value: '#b4ce65', time: 8 },
+            { name: 'G6', value: '#cfdd3c', time: 10 }
+        ];
         
         let currentPosition = 0;
         let animationFrame = null;
         let isHoldingUp = false;
         let isHoldingDown = false;
-        let isHoldingRight = false;
-        let isHoldingLeft = false;
         let lastUpdateTime = Date.now();
         
         function hexToRgb(hex) {
@@ -61,19 +39,15 @@
         }
         
         function updateColor() {
-            const useRightLeft = currentPosition >= 50;
-            const isAdvancing = useRightLeft ? isHoldingRight : isHoldingUp;
-            const isReversing = useRightLeft ? isHoldingLeft : isHoldingDown;
-
-            if (!isAdvancing && !isReversing) return;
-
+            if (!isHoldingUp && !isHoldingDown) return;
+            
             const now = Date.now();
             const deltaTime = (now - lastUpdateTime) / 1000;
             lastUpdateTime = now;
-
-            if (isAdvancing) {
+            
+            if (isHoldingUp) {
                 currentPosition += deltaTime;
-            } else if (isReversing) {
+            } else if (isHoldingDown) {
                 currentPosition -= deltaTime;
             }
             
@@ -119,43 +93,19 @@
                 if (!animationFrame) {
                     updateColor();
                 }
-            } else if (e.key === 'ArrowRight' && !isHoldingRight) {
-                isHoldingRight = true;
-                lastUpdateTime = Date.now();
-                if (!animationFrame) {
-                    updateColor();
-                }
-            } else if (e.key === 'ArrowLeft' && !isHoldingLeft) {
-                isHoldingLeft = true;
-                lastUpdateTime = Date.now();
-                if (!animationFrame) {
-                    updateColor();
-                }
             }
         });
-
+        
         document.addEventListener('keyup', (e) => {
             if (e.key === 'ArrowUp') {
                 isHoldingUp = false;
-                if (!isHoldingDown && !isHoldingRight && !isHoldingLeft && animationFrame) {
+                if (!isHoldingDown && animationFrame) {
                     cancelAnimationFrame(animationFrame);
                     animationFrame = null;
                 }
             } else if (e.key === 'ArrowDown') {
                 isHoldingDown = false;
-                if (!isHoldingUp && !isHoldingRight && !isHoldingLeft && animationFrame) {
-                    cancelAnimationFrame(animationFrame);
-                    animationFrame = null;
-                }
-            } else if (e.key === 'ArrowRight') {
-                isHoldingRight = false;
-                if (!isHoldingUp && !isHoldingDown && !isHoldingLeft && animationFrame) {
-                    cancelAnimationFrame(animationFrame);
-                    animationFrame = null;
-                }
-            } else if (e.key === 'ArrowLeft') {
-                isHoldingLeft = false;
-                if (!isHoldingUp && !isHoldingDown && !isHoldingRight && animationFrame) {
+                if (!isHoldingUp && animationFrame) {
                     cancelAnimationFrame(animationFrame);
                     animationFrame = null;
                 }
