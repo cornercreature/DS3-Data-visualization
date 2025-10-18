@@ -15,6 +15,10 @@
         <div>Hold time: <span id="holdTime">0.0</span>s</div>
         <div>Current color: <span id="colorName">Blue</span></div>
     </div>
+
+    <div class="leafButton">
+        <img id="toggleVisualization" class="toggle-btn" src="../Image Assets/blank leaf.png" alt="Toggle Trail Visualization">
+    </div>
     
     <div class="center-text">
         Press and hold the UP ARROW key → to advance<br>
@@ -22,6 +26,38 @@
     </div>
 
     <div id="controlNotification" class="control-notification"></div>
+
+    <div id="trailVisualization" class="trail-visualization hidden">
+        <div class="trail-content">
+            <h1 class="trail-title">The Sun Falls Through the Leaves as So...</h1>
+            <h2 class="trail-subtitle">Overhead Light Across the Trail</h2>
+
+            <svg class="trail-svg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid meet">
+                <path id="trailPath" d="M 50 400 L 200 400 Q 350 380 450 200 T 750 180 Q 900 250 1000 380 L 1150 400"
+                      stroke="white" stroke-width="3" fill="none"/>
+                <circle id="trailDot" cx="50" cy="400" r="15" fill="white"/>
+            </svg>
+
+            <div class="color-legend">
+                <div class="legend-label-left">
+                    <div>Darkest</div>
+                    <div class="legend-sublabel">Full Coverage</div>
+                </div>
+                <div class="legend-swatches">
+                    <div class="legend-swatch" style="background-color: #144955;"></div>
+                    <div class="legend-swatch" style="background-color: #146151;"></div>
+                    <div class="legend-swatch" style="background-color: #498558;"></div>
+                    <div class="legend-swatch" style="background-color: #7faa5e;"></div>
+                    <div class="legend-swatch" style="background-color: #b4ce65;"></div>
+                    <div class="legend-swatch" style="background-color: #cfdd3c;"></div>
+                </div>
+                <div class="legend-label-right">
+                    <div>Lightest</div>
+                    <div class="legend-sublabel">No Coverage</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="light.js"></script>
 </body>

@@ -107,6 +107,9 @@ let isHoldingLeft = false;
 let lastUpdateTime = Date.now();
 let notificationShownAt50 = false;
 let notificationShownAt112 = false;
+let isTrailVisible = false;
+let trailPath = null;
+let centerTextHidden = false;
 
 function hexToRgb(hex) {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -205,6 +208,9 @@ function updateColor() {
     document.body.style.backgroundColor = currentColor;
     document.getElementById('colorName').textContent = currentColorName;
 
+    // Update trail dot position if visualization is visible
+    updateTrailDot();
+
     animationFrame = requestAnimationFrame(updateColor);
 }
 
@@ -212,6 +218,14 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp' && !isHoldingUp) {
         isHoldingUp = true;
         lastUpdateTime = Date.now();
+
+        // Fade out center text on first up arrow interaction
+        if (!centerTextHidden) {
+            centerTextHidden = true;
+            const centerText = document.querySelector('.center-text');
+            centerText.classList.add('fade-out');
+        }
+
         if (!animationFrame) {
             updateColor();
         }
@@ -263,3 +277,40 @@ document.addEventListener('keyup', (e) => {
         }
     }
 });
+
+// Trail Visualization Functions
+function initTrailVisualization() {
+    trailPath = document.getElementById('trailPath');
+    const toggleBtn = document.getElementById('toggleVisualization');
+    const trailViz = document.getElementById('trailVisualization');
+
+    toggleBtn.addEventListener('click', () => {
+        isTrailVisible = !isTrailVisible;
+        if (isTrailVisible) {
+            trailViz.classList.remove('hidden');
+        } else {
+            trailViz.classList.add('hidden');
+        }
+    });
+}
+
+function getPointOnPath(path, percentage) {
+    const length = path.getTotalLength();
+    const point = path.getPointAtLength(length * percentage);
+    return point;
+}
+
+function updateTrailDot() {
+    if (!isTrailVisible || !trailPath) return;
+
+    const maxTime = 205;
+    const percentage = Math.min(currentPosition / maxTime, 1);
+    const point = getPointOnPath(trailPath, percentage);
+
+    const dot = document.getElementById('trailDot');
+    dot.setAttribute('cx', point.x);
+    dot.setAttribute('cy', point.y);
+}
+
+// Initialize trail visualization when DOM is loaded
+document.addEventListener('DOMContentLoaded', initTrailVisualization);
