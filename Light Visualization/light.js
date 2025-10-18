@@ -288,8 +288,10 @@ function initTrailVisualization() {
         isTrailVisible = !isTrailVisible;
         if (isTrailVisible) {
             trailViz.classList.remove('hidden');
+            toggleBtn.src = '../Image Assets/white leaf.png';
         } else {
             trailViz.classList.add('hidden');
+            toggleBtn.src = '../Image Assets/blank leaf.png';
         }
     });
 }
