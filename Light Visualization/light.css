@@ -23,5 +23,26 @@ body {
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             font-size: 24px;
             text-align: center;
-            font-family: "GT-Pressura-Regular-Trial", sans-serif;
+            font-family: "GT-Pressura-Extended-Regular-Trial", sans-serif;
+        }
+
+        .control-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            font-family: "GT-Zirkon-Bold", sans-serif;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .control-notification.show {
+            opacity: 1;
         }

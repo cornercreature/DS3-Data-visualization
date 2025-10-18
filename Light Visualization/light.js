@@ -105,6 +105,8 @@ let isHoldingDown = false;
 let isHoldingRight = false;
 let isHoldingLeft = false;
 let lastUpdateTime = Date.now();
+let notificationShownAt50 = false;
+let notificationShownAt112 = false;
 
 function hexToRgb(hex) {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -131,6 +133,16 @@ function interpolateColor(color1, color2, factor) {
     return rgbToHex(r, g, b);
 }
 
+function showNotification(message, duration = 3000) {
+    const notification = document.getElementById('controlNotification');
+    notification.textContent = message;
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, duration);
+}
+
 function updateColor() {
     const useRightLeft = currentPosition >= 50 && currentPosition < 112;
     const isAdvancing = useRightLeft ? isHoldingRight : isHoldingUp;
@@ -150,6 +162,25 @@ function updateColor() {
 
     const maxTime = colors[colors.length - 1].time;
     currentPosition = Math.max(0, Math.min(maxTime, currentPosition));
+
+    // Show notifications at control change thresholds
+    if (currentPosition >= 50 && !notificationShownAt50) {
+        notificationShownAt50 = true;
+        showNotification('Use RIGHT ARROW → to advance\nUse LEFT ARROW ← to reverse');
+    }
+
+    if (currentPosition >= 112 && !notificationShownAt112) {
+        notificationShownAt112 = true;
+        showNotification('Use UP ARROW ↑ to advance\nUse DOWN ARROW ↓ to reverse');
+    }
+
+    // Reset notification flags if going backwards
+    if (currentPosition < 50) {
+        notificationShownAt50 = false;
+    }
+    if (currentPosition < 112) {
+        notificationShownAt112 = false;
+    }
 
     document.getElementById('holdTime').textContent = currentPosition.toFixed(1);
 
