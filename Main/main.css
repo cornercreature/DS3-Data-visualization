@@ -22,7 +22,10 @@ body {
 
 /* Each parallax group represents one "layer" at a different depth */
 .parallax-group {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
     transform-style: preserve-3d;
     transition: transform 0.1s ease-out;
@@ -52,29 +55,36 @@ body {
 /* Formula: scale = 1 + (translateZ * -1) / perspective */
 /* With perspective: 1px */
 /* Increased spacing for more dramatic approach effect */
+/* z-index reversed: first group on top */
 
 .depth-1 {
     transform: translateZ(-1px) scale(2);
+    z-index: 6;
 }
 
 .depth-2 {
     transform: translateZ(-2.5px) scale(3.5);
+    z-index: 5;
 }
 
 .depth-3 {
     transform: translateZ(-4px) scale(5);
+    z-index: 4;
 }
 
 .depth-4 {
     transform: translateZ(-5.5px) scale(6.5);
+    z-index: 3;
 }
 
 .depth-5 {
     transform: translateZ(-7px) scale(8);
+    z-index: 2;
 }
 
 .depth-6 {
     transform: translateZ(-8.5px) scale(9.5);
+    z-index: 1;
 }
 
 /* Color palette for rectangles */
