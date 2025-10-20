@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Perspective container - this creates the 3D space */
+.perspective-container {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    perspective: 1px;
+    perspective-origin: center center;
+    transform-style: preserve-3d;
+}
+
+/* Each parallax group represents one "layer" at a different depth */
+.parallax-group {
+    position: relative;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+/* Container centers the content */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Rectangle styling */
+.rectangle {
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    transition: transform 0.1s ease-out;
+}
+
+/* Different depth levels using translateZ and scale compensation */
+/* Formula: scale = 1 + (translateZ * -1) / perspective */
+/* With perspective: 1px */
+/* Increased spacing for more dramatic approach effect */
+
+.depth-1 {
+    transform: translateZ(-1px) scale(2);
+}
+
+.depth-2 {
+    transform: translateZ(-2.5px) scale(3.5);
+}
+
+.depth-3 {
+    transform: translateZ(-4px) scale(5);
+}
+
+.depth-4 {
+    transform: translateZ(-5.5px) scale(6.5);
+}
+
+.depth-5 {
+    transform: translateZ(-7px) scale(8);
+}
+
+.depth-6 {
+    transform: translateZ(-8.5px) scale(9.5);
+}
+
+/* Color palette for rectangles */
+.color-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.color-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.color-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.color-4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.color-5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.color-6 {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+.perspective-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.perspective-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.perspective-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.perspective-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
