@@ -192,13 +192,117 @@ body {
     opacity: calc(var(--visible) - 91);
 }
 
-/* White circles for new image groups */
-.image-1, .image-2, .white-circle {
-    background: white;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    border: 2px solid #fff;
+/* Image assets for pGroups - remove white circles, add actual images */
+.image-1 {
+    background-image: url(/Image\ Assets/rope\ layer/rope.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.image-2 {
+    background-image: url(/Image\ Assets/rope\ layer/ropegreenA.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+/* pGroups between depth-2 and depth-3 */
+.pGroup-2-3-1 .rectangle {
+    background-image: url(/Image\ Assets/rope\ layer/ropegreenb.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-2-3-2 .rectangle {
+    background-image: url(/Image\ Assets/shrubA\ layer/shrubA.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-2-3-3 .rectangle {
+    background-image: url(/Image\ Assets/shrubA\ layer/shrub\ green\ A.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+/* pGroups between depth-3 and depth-4 */
+.pGroup-3-4-1 .rectangle {
+    background-image: url(/Image\ Assets/shrubB/shrub\ B.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-3-4-2 .rectangle {
+    background-image: url(/Image\ Assets/shrubB/shrub\ green\ B.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+/* pGroups between depth-4 and depth-5 */
+.pGroup-4-5-1 .rectangle {
+    background-image: url(/Image\ Assets/tree1/tree1.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-4-5-2 .rectangle {
+    background-image: url(/Image\ Assets/tree1/tree1\ blank.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-4-5-3 .rectangle {
+    background-image: url(/Image\ Assets/tree1/tree1green.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+/* pGroups between depth-5 and depth-6 */
+.pGroup-5-6-1 .rectangle {
+    background-image: url(/Image\ Assets/tree2/tree\ 2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-5-6-2 .rectangle {
+    background-image: url(/Image\ Assets/tree2/green\ 1.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
 }
 
 /* Color palette for rectangles */
