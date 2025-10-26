@@ -68,7 +68,7 @@ body {
 /* Opacity fades based on scroll position */
 
 .depth-1 {
-    transform: translateZ(calc(var(--scroll) - 2500px));
+    transform: translateZ(calc(var(--scroll) - 2250px));
     z-index: 20;
     opacity: calc(var(--visible) - 141);
 }
@@ -83,118 +83,117 @@ body {
 }
 
 /* New parallax groups between depth-1 and depth-2 */
-/* Spacing: depth-1 at 2500, depth-2 at 3500 = 1000px difference */
-/* Divide by 3 to get equal spacing: 333.33px intervals */
+/* Spacing reduced by 10%: 333.33px -> 300px intervals */
 
 .pGroup-image-1 {
-    transform: translateZ(calc(var(--scroll) - 2833px));
+    transform: translateZ(calc(var(--scroll) - 2550px));
     z-index: 19;
     opacity: calc(var(--visible) - 137);
 }
 
 .pGroup-image-2 {
-    transform: translateZ(calc(var(--scroll) - 3167px));
+    transform: translateZ(calc(var(--scroll) - 2850px));
     z-index: 18;
     opacity: calc(var(--visible) - 134);
 }
 
 .depth-2 {
-    transform: translateZ(calc(var(--scroll) - 3500px));
+    transform: translateZ(calc(var(--scroll) - 3150px));
     z-index: 17;
     opacity: calc(var(--visible) - 131);
 }
 
-/* 3 pGroups between depth-2 (3500) and depth-3 (4500) = 1000px / 4 = 250px spacing */
+/* 3 pGroups between depth-2 and depth-3 - spacing reduced by 10%: 250px -> 225px */
 .pGroup-2-3-1 {
-    transform: translateZ(calc(var(--scroll) - 3750px));
+    transform: translateZ(calc(var(--scroll) - 3375px));
     z-index: 16;
     opacity: calc(var(--visible) - 128);
 }
 
 .pGroup-2-3-2 {
-    transform: translateZ(calc(var(--scroll) - 4000px));
+    transform: translateZ(calc(var(--scroll) - 3600px));
     z-index: 15;
     opacity: calc(var(--visible) - 125);
 }
 
 .pGroup-2-3-3 {
-    transform: translateZ(calc(var(--scroll) - 4250px));
+    transform: translateZ(calc(var(--scroll) - 3825px));
     z-index: 14;
     opacity: calc(var(--visible) - 123);
 }
 
 .depth-3 {
-    transform: translateZ(calc(var(--scroll) - 4500px));
+    transform: translateZ(calc(var(--scroll) - 4050px));
     z-index: 13;
     opacity: calc(var(--visible) - 121);
 }
 
-/* 2 pGroups between depth-3 (4500) and depth-4 (5500) = 1000px / 3 = 333px spacing */
+/* 2 pGroups between depth-3 and depth-4 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-3-4-1 {
-    transform: translateZ(calc(var(--scroll) - 4833px));
+    transform: translateZ(calc(var(--scroll) - 4350px));
     z-index: 12;
     opacity: calc(var(--visible) - 117);
 }
 
 .pGroup-3-4-2 {
-    transform: translateZ(calc(var(--scroll) - 5167px));
+    transform: translateZ(calc(var(--scroll) - 4650px));
     z-index: 11;
     opacity: calc(var(--visible) - 114);
 }
 
 .depth-4 {
-    transform: translateZ(calc(var(--scroll) - 5500px));
+    transform: translateZ(calc(var(--scroll) - 4950px));
     z-index: 10;
     opacity: calc(var(--visible) - 111);
 }
 
-/* 3 pGroups between depth-4 (5500) and depth-5 (6500) = 1000px / 4 = 250px spacing */
+/* 3 pGroups between depth-4 and depth-5 - spacing reduced by 10%: 250px -> 225px */
 .pGroup-4-5-1 {
-    transform: translateZ(calc(var(--scroll) - 5750px));
+    transform: translateZ(calc(var(--scroll) - 5175px));
     z-index: 9;
     opacity: calc(var(--visible) - 108);
 }
 
 .pGroup-4-5-2 {
-    transform: translateZ(calc(var(--scroll) - 6000px));
+    transform: translateZ(calc(var(--scroll) - 5400px));
     z-index: 8;
     opacity: calc(var(--visible) - 105);
 }
 
 .pGroup-4-5-3 {
-    transform: translateZ(calc(var(--scroll) - 6250px));
+    transform: translateZ(calc(var(--scroll) - 5625px));
     z-index: 7;
     opacity: calc(var(--visible) - 103);
 }
 
 .depth-5 {
-    transform: translateZ(calc(var(--scroll) - 6500px));
+    transform: translateZ(calc(var(--scroll) - 5850px));
     z-index: 6;
     opacity: calc(var(--visible) - 101);
 }
 
-/* 2 pGroups between depth-5 (6500) and depth-6 (7500) = 1000px / 3 = 333px spacing */
+/* 2 pGroups between depth-5 and depth-6 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-5-6-1 {
-    transform: translateZ(calc(var(--scroll) - 6833px));
+    transform: translateZ(calc(var(--scroll) - 6150px));
     z-index: 5;
     opacity: calc(var(--visible) - 97);
 }
 
 .pGroup-5-6-2 {
-    transform: translateZ(calc(var(--scroll) - 7167px));
+    transform: translateZ(calc(var(--scroll) - 6450px));
     z-index: 4;
     opacity: calc(var(--visible) - 94);
 }
 
 .depth-6 {
-    transform: translateZ(calc(var(--scroll) - 7500px));
+    transform: translateZ(calc(var(--scroll) - 6750px));
     z-index: 3;
     opacity: calc(var(--visible) - 91);
 }
 
-/* Image assets for pGroups - remove white circles, add actual images */
+/* Image assets for pGroups - using images from "no separation" folder */
 .image-1 {
-    background-image: url(/Image\ Assets/rope\ layer/rope.png);
+    background-image: url(/Image\ Assets/no\ separation/tree1.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -203,7 +202,7 @@ body {
 }
 
 .image-2 {
-    background-image: url(/Image\ Assets/rope\ layer/ropegreenA.png);
+    background-image: url(/Image\ Assets/no\ separation/tree3.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -213,7 +212,7 @@ body {
 
 /* pGroups between depth-2 and depth-3 */
 .pGroup-2-3-1 .rectangle {
-    background-image: url(/Image\ Assets/rope\ layer/ropegreenb.png);
+    background-image: url(/Image\ Assets/no\ separation/tree\ 2full.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -222,7 +221,7 @@ body {
 }
 
 .pGroup-2-3-2 .rectangle {
-    background-image: url(/Image\ Assets/shrubA\ layer/shrubA.png);
+    background-image: url(/Image\ Assets/no\ separation/tree\ number\ 4.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -231,7 +230,7 @@ body {
 }
 
 .pGroup-2-3-3 .rectangle {
-    background-image: url(/Image\ Assets/shrubA\ layer/shrub\ green\ A.png);
+    background-image: url(/Image\ Assets/no\ separation/shrub2.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -241,7 +240,7 @@ body {
 
 /* pGroups between depth-3 and depth-4 */
 .pGroup-3-4-1 .rectangle {
-    background-image: url(/Image\ Assets/shrubB/shrub\ B.png);
+    background-image: url(/Image\ Assets/no\ separation/shrub3.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -249,58 +248,13 @@ body {
     border: none;
 }
 
-.pGroup-3-4-2 .rectangle {
-    background-image: url(/Image\ Assets/shrubB/shrub\ green\ B.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
-
-/* pGroups between depth-4 and depth-5 */
-.pGroup-4-5-1 .rectangle {
-    background-image: url(/Image\ Assets/tree1/tree1.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
-
-.pGroup-4-5-2 .rectangle {
-    background-image: url(/Image\ Assets/tree1/tree1\ blank.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
-
-.pGroup-4-5-3 .rectangle {
-    background-image: url(/Image\ Assets/tree1/tree1green.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
-
-/* pGroups between depth-5 and depth-6 */
-.pGroup-5-6-1 .rectangle {
-    background-image: url(/Image\ Assets/tree2/tree\ 2.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-}
-
+/* Remaining pGroups left blank - no background images */
+.pGroup-3-4-2 .rectangle,
+.pGroup-4-5-1 .rectangle,
+.pGroup-4-5-2 .rectangle,
+.pGroup-4-5-3 .rectangle,
+.pGroup-5-6-1 .rectangle,
 .pGroup-5-6-2 .rectangle {
-    background-image: url(/Image\ Assets/tree2/green\ 1.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
