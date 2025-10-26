@@ -68,13 +68,13 @@ body {
 /* Opacity fades based on scroll position */
 
 .depth-1 {
-    transform: translateZ(calc(var(--scroll) - 2250px));
+    transform: translateZ(calc(var(--scroll) - 281.25px));
     z-index: 20;
     opacity: calc(var(--visible) - 141);
 }
 
 .depth-1 .rectangle {
-    background-image: url(/Image\ Assets/layer1.png);
+    background-image: url(/Image\ Assets/Layer\ 1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -86,109 +86,109 @@ body {
 /* Spacing reduced by 10%: 333.33px -> 300px intervals */
 
 .pGroup-image-1 {
-    transform: translateZ(calc(var(--scroll) - 2550px));
+    transform: translateZ(calc(var(--scroll) - 993.75px));
     z-index: 19;
     opacity: calc(var(--visible) - 137);
 }
 
 .pGroup-image-2 {
-    transform: translateZ(calc(var(--scroll) - 2850px));
+    transform: translateZ(calc(var(--scroll) - 1706.25px));
     z-index: 18;
     opacity: calc(var(--visible) - 134);
 }
 
 .depth-2 {
-    transform: translateZ(calc(var(--scroll) - 3150px));
+    transform: translateZ(calc(var(--scroll) - 2418.75px));
     z-index: 17;
     opacity: calc(var(--visible) - 131);
 }
 
 /* 3 pGroups between depth-2 and depth-3 - spacing reduced by 10%: 250px -> 225px */
 .pGroup-2-3-1 {
-    transform: translateZ(calc(var(--scroll) - 3375px));
+    transform: translateZ(calc(var(--scroll) - 3131.25px));
     z-index: 16;
     opacity: calc(var(--visible) - 128);
 }
 
 .pGroup-2-3-2 {
-    transform: translateZ(calc(var(--scroll) - 3600px));
+    transform: translateZ(calc(var(--scroll) - 3843.75px));
     z-index: 15;
     opacity: calc(var(--visible) - 125);
 }
 
 .pGroup-2-3-3 {
-    transform: translateZ(calc(var(--scroll) - 3825px));
+    transform: translateZ(calc(var(--scroll) - 4556.25px));
     z-index: 14;
-    opacity: calc(var(--visible) - 123);
+    opacity: calc(var(--visible) - 124);
 }
 
 .depth-3 {
-    transform: translateZ(calc(var(--scroll) - 4050px));
+    transform: translateZ(calc(var(--scroll) - 5268.75px));
     z-index: 13;
-    opacity: calc(var(--visible) - 121);
+    opacity: calc(var(--visible) - 117);
 }
 
 /* 2 pGroups between depth-3 and depth-4 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-3-4-1 {
-    transform: translateZ(calc(var(--scroll) - 4350px));
+    transform: translateZ(calc(var(--scroll) - 5981.25px));
     z-index: 12;
-    opacity: calc(var(--visible) - 117);
+    opacity: calc(var(--visible) - 110);
 }
 
 .pGroup-3-4-2 {
-    transform: translateZ(calc(var(--scroll) - 4650px));
+    transform: translateZ(calc(var(--scroll) - 6693.75px));
     z-index: 11;
-    opacity: calc(var(--visible) - 114);
+    opacity: calc(var(--visible) - 103);
 }
 
 .depth-4 {
-    transform: translateZ(calc(var(--scroll) - 4950px));
+    transform: translateZ(calc(var(--scroll) - 7406.25px));
     z-index: 10;
-    opacity: calc(var(--visible) - 111);
+    opacity: calc(var(--visible) - 96);
 }
 
 /* 3 pGroups between depth-4 and depth-5 - spacing reduced by 10%: 250px -> 225px */
 .pGroup-4-5-1 {
-    transform: translateZ(calc(var(--scroll) - 5175px));
+    transform: translateZ(calc(var(--scroll) - 8118.75px));
     z-index: 9;
-    opacity: calc(var(--visible) - 108);
+    opacity: calc(var(--visible) - 89);
 }
 
 .pGroup-4-5-2 {
-    transform: translateZ(calc(var(--scroll) - 5400px));
+    transform: translateZ(calc(var(--scroll) - 8831.25px));
     z-index: 8;
-    opacity: calc(var(--visible) - 105);
+    opacity: calc(var(--visible) - 82);
 }
 
 .pGroup-4-5-3 {
-    transform: translateZ(calc(var(--scroll) - 5625px));
+    transform: translateZ(calc(var(--scroll) - 9543.75px));
     z-index: 7;
-    opacity: calc(var(--visible) - 103);
+    opacity: calc(var(--visible) - 75);
 }
 
 .depth-5 {
-    transform: translateZ(calc(var(--scroll) - 5850px));
+    transform: translateZ(calc(var(--scroll) - 10256.25px));
     z-index: 6;
-    opacity: calc(var(--visible) - 101);
+    opacity: calc(var(--visible) - 68);
 }
 
 /* 2 pGroups between depth-5 and depth-6 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-5-6-1 {
-    transform: translateZ(calc(var(--scroll) - 6150px));
+    transform: translateZ(calc(var(--scroll) - 10968.75px));
     z-index: 5;
-    opacity: calc(var(--visible) - 97);
+    opacity: calc(var(--visible) - 61);
 }
 
 .pGroup-5-6-2 {
-    transform: translateZ(calc(var(--scroll) - 6450px));
+    transform: translateZ(calc(var(--scroll) - 11681.25px));
     z-index: 4;
-    opacity: calc(var(--visible) - 94);
+    opacity: calc(var(--visible) - 54);
 }
 
 .depth-6 {
-    transform: translateZ(calc(var(--scroll) - 6750px));
+    transform: translateZ(calc(var(--scroll) - 12393.75px));
     z-index: 3;
-    opacity: calc(var(--visible) - 91);
+    opacity: calc(var(--visible) - 47);
 }
 
 /* Image assets for pGroups - using images from "no separation" folder */
