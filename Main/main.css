@@ -29,6 +29,7 @@ body {
     perspective: 600px; /* Same as HTML Review */
     perspective-origin: center center;
     transform-style: preserve-3d;
+    overflow: visible;
 }
 
 /* Each parallax group represents one "layer" at a different depth */
@@ -40,6 +41,7 @@ body {
     height: calc(-6rem + 100vh);
     margin: 0;
     transform-style: preserve-3d;
+    overflow: visible;
 }
 
 /* Container centers the content */
@@ -52,6 +54,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
 /* Rectangle styling */
@@ -60,6 +63,7 @@ body {
     max-width: 1200px;
     height: 70vh;
     border: 2px solid #fff;
+    overflow: visible;
 }
 
 /* Different depth levels using translateZ with --scroll variable */
@@ -103,6 +107,15 @@ body {
     opacity: calc(var(--visible) - 131);
 }
 
+.depth-2 .rectangle {
+    background-image: url(/Image\ Assets/shrubA\ layer/shrubA.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
 /* 3 pGroups between depth-2 and depth-3 - spacing reduced by 10%: 250px -> 225px */
 .pGroup-2-3-1 {
     transform: translateZ(calc(var(--scroll) - 3131.25px));
@@ -128,6 +141,15 @@ body {
     opacity: calc(var(--visible) - 117);
 }
 
+.depth-3 .rectangle {
+    background-image: url(/Image\ Assets/tree2/tree\ 2.png);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
 /* 2 pGroups between depth-3 and depth-4 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-3-4-1 {
     transform: translateZ(calc(var(--scroll) - 5981.25px));
@@ -145,6 +167,15 @@ body {
     transform: translateZ(calc(var(--scroll) - 7406.25px));
     z-index: 10;
     opacity: calc(var(--visible) - 96);
+}
+
+.depth-4 .rectangle {
+    background-image: url(/Image\ Assets/tree3/tree3\ blank.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
 }
 
 /* 3 pGroups between depth-4 and depth-5 - spacing reduced by 10%: 250px -> 225px */
@@ -172,6 +203,15 @@ body {
     opacity: calc(var(--visible) - 68);
 }
 
+.depth-5 .rectangle {
+    background-image: url(/Image\ Assets/shrubA\ layer/shrub\ green\ A.png);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
 /* 2 pGroups between depth-5 and depth-6 - spacing reduced by 10%: 333px -> 300px */
 .pGroup-5-6-1 {
     transform: translateZ(calc(var(--scroll) - 10968.75px));
@@ -191,20 +231,29 @@ body {
     opacity: calc(var(--visible) - 47);
 }
 
+.depth-6 .rectangle {
+    background-image: url(/Image\ Assets/tree2/green\ 3.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
 /* Image assets for pGroups - using images from "no separation" folder */
 .image-1 {
-    background-image: url(/Image\ Assets/no\ separation/tree1.png);
+    background-image: url(/Image\ Assets/no\ separation/tree3.png);
     background-size: contain;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
 
 .image-2 {
-    background-image: url(/Image\ Assets/no\ separation/tree3.png);
+    background-image: url(/Image\ Assets/tree1/tree1green.png);
     background-size: contain;
-    background-position: center;
+    background-position: right center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
@@ -214,7 +263,7 @@ body {
 .pGroup-2-3-1 .rectangle {
     background-image: url(/Image\ Assets/no\ separation/tree\ 2full.png);
     background-size: contain;
-    background-position: center;
+    background-position: right center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
@@ -223,7 +272,7 @@ body {
 .pGroup-2-3-2 .rectangle {
     background-image: url(/Image\ Assets/no\ separation/tree\ number\ 4.png);
     background-size: contain;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
@@ -232,7 +281,7 @@ body {
 .pGroup-2-3-3 .rectangle {
     background-image: url(/Image\ Assets/no\ separation/shrub2.png);
     background-size: contain;
-    background-position: center;
+    background-position: right center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
@@ -242,19 +291,63 @@ body {
 .pGroup-3-4-1 .rectangle {
     background-image: url(/Image\ Assets/no\ separation/shrub3.png);
     background-size: contain;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
 
-/* Remaining pGroups left blank - no background images */
-.pGroup-3-4-2 .rectangle,
-.pGroup-4-5-1 .rectangle,
-.pGroup-4-5-2 .rectangle,
-.pGroup-4-5-3 .rectangle,
-.pGroup-5-6-1 .rectangle,
+/* Remaining pGroups populated with images */
+.pGroup-3-4-2 .rectangle {
+    background-image: url(/Image\ Assets/shrubB/shrub\ B.png);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-4-5-1 .rectangle {
+    background-image: url(/Image\ Assets/tree3/tree3\ green.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-4-5-2 .rectangle {
+    background-image: url(/Image\ Assets/tree4/tree\ 2.png);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-4-5-3 .rectangle {
+    background-image: url(/Image\ Assets/tree1/tree1\ blank.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+.pGroup-5-6-1 .rectangle {
+    background-image: url(/Image\ Assets/tree2/green\ 1.png);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
 .pGroup-5-6-2 .rectangle {
+    background-image: url(/Image\ Assets/shrubB/shrub\ green\ B.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
