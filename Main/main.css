@@ -11,13 +11,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: #000;
+    background: #ffffff;
     height: 18000px; /* Total scrollable height like HTML Review */
-    background-image: url(/Image\ Assets/fence.png);
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps background fixed while scrolling */
 }
 
 /* Perspective container - this creates the 3D space */
