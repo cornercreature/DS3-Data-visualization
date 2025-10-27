@@ -2,6 +2,7 @@
 window.onload = () => {
     handleScroll();
     setupGreenLinks();
+    setupModal();
 }
 
 window.onscroll = () => handleScroll();
@@ -28,4 +29,28 @@ function setupGreenLinks() {
             alert(`You clicked green image #${index + 1}!`);
         });
     });
+}
+
+// Setup modal functionality
+function setupModal() {
+    const modal = document.getElementById('modal');
+    const btn = document.getElementById('modalButton');
+    const span = document.getElementsByClassName('close')[0];
+
+    // Open modal when button is clicked
+    btn.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    // Close modal when X is clicked
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
 }

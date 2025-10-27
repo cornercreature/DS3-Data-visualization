@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scroll Demo</title>
+    <link rel="stylesheet" href="../typefaces/GT-Pressura/GT-Pressura.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <!-- Fixed button in bottom right corner -->
+    <button id="modalButton" class="modal-button"></button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>About Grounding</h3>
+            <br>
+            <p>Grounding is a Providence, Rhode Island based simulation of human interaction of nature. We hope that through this experience, you realize the weight of your presence in nature, as well as your responsibility in preserving it.</p> 
+            <br>    
+            <p>Wondering what you can do to protect the green spaces around you? While in nature you should leave no trace and take nothing but pictures, you should take from us a tips keepsake for additional guidance!</p>
+            <br>
+            <p>Didn't see anything on your trip? Walk (scroll) slower!</p>
+            <br>
+            <p class="credits">
+            Nicole Sun
+            Runping Mao-Wei
+            Susan He 
+            for RISD GD DS3.
+            
+            Typeset in ABCPressura.</p>
+            <br>
+
+        </div>
+    </div>
+
     <div class="perspective-container">
         <div class="parallax-group depth-1">
             <div class="container">
-                <img src="/Image Assets/Layer 1.png" alt="Layer 1">
+                <img src="/Image Assets/grounding bw.png" alt="Grounding BW" class="full-width">
             </div>
         </div>
 
@@ -58,7 +86,7 @@
         <div class="parallax-group depth-3">
             <div class="container">
                 <a href="#" class="green-link">
-                    <img src="/Image Assets/shrubA layer/shrub green A.png" alt="Shrub Green A" class="align-right green-image">
+                    <img src="/Image Assets/shrubA layer/shrub green A.png" alt="Shrub Green A" class="align-left green-image">
                 </a>
             </div>
         </div>
@@ -66,7 +94,7 @@
         <!-- 2 pGroups between depth-3 and depth-4 -->
         <div class="parallax-group pGroup-3-4-1">
             <div class="container">
-                <img src="/Image Assets/no separation/shrub3.png" alt="Shrub 3" class="align-left">
+                <img src="/Image Assets/shrubB/shrub B.png" alt="Shrub B" class="align-left">
             </div>
         </div>
 
@@ -87,7 +115,7 @@
         <!-- 3 pGroups between depth-4 and depth-5 -->
         <div class="parallax-group pGroup-4-5-1">
             <div class="container">
-                <img src="/Image Assets/tree3/tree3 blank.png" alt="Tree 3 Blank" class="align-left">
+                <img src="/Image Assets/tree3/tree3 blank.png" alt="Tree 3 Blank" class="align-right">
             </div>
         </div>
 
@@ -107,16 +135,7 @@
 
         <div class="parallax-group depth-5">
             <div class="container">
-                <img src="/Image Assets/shrubB/shrub B.png" alt="Shrub B" class="align-right">
-            </div>
-        </div>
-
-        <!-- 1 pGroup between depth-5 and depth-6 -->
-        <div class="parallax-group pGroup-5-6-2">
-            <div class="container">
-                <a href="#" class="green-link">
-                    <img src="/Image Assets/tree2/green 3.png" alt="Green 3" class="align-left green-image">
-                </a>
+                <img src="/Image Assets/no separation/shrub3.png" alt="Shrub 3" class="align-left">
             </div>
         </div>
 
