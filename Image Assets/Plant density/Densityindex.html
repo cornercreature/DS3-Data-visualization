@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treeline field-of-view observations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        @font-face {
+            font-family: 'GT Pressura';
+            src: url('GT-Pressura/GT-Pressura-Regular-Trial.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'GT Pressura';
+            src: url('GT-Pressura/GT-Pressura-Medium-Trial.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'GT Pressura';
+            src: url('GT-Pressura/GT-Pressura-Bold-Trial.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #87CEEB;
+        }
+        canvas {
+            display: block;
+        }
+        
+        /* 容器样式 */
+        .container {
+            position: absolute;
+            left: 70px;
+            width: 250px;
+            height: 280px;
+            background: rgba(135, 206, 235, 0.8);
+            border: 3px solid white;
+            border-radius: 0px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            padding: 15px;
+            box-sizing: border-box;
+            color: white;
+            font-family: 'GT Pressura', Arial, sans-serif;
+        }
+        
+        .container.active {
+            opacity: 1;
+        }
+        
+        .container-top {
+            top: 70px;
+        }
+        
+        .container-bottom {
+            top: 380px;
+        }
+        
+        .container img {
+            width: 100%;
+            max-width: 220px;
+            margin: 5px 0;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        /* B开头的图片样式 - 更小，位置稍微往下，居中显示 */
+        .container-top img {
+            width: 80%;
+            max-width: 180px;
+            margin: 0px auto 5px auto;
+            display: block;
+        }
+        
+        /* A开头的图片样式 - 往上移动一点，但不超过container */
+        .container-bottom img {
+            margin: -8px 0 5px 0;
+            max-height: 180px; /* 限制最大高度 */
+            object-fit: contain; /* 保持图片比例，不超出容器 */
+        }
+        
+        /* 为A-06单独设置样式，让它更往上 */
+        #container-6-bottom img {
+            margin: -22px 0 5px 0;
+        }
+        
+        .container h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        .container p {
+            margin: 5px 0;
+            font-size: 14px;
+            line-height: 1.4;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        /* 介绍文字样式 */
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(135, 206, 235, 0.95);
+            border: 3px solid white;
+            padding: 30px 40px;
+            text-align: center;
+            color: white;
+            font-family: 'GT Pressura', Arial, sans-serif;
+            z-index: 2000;
+            max-width: 500px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .intro-text.active {
+            opacity: 1;
+        }
+        
+        .intro-text h2 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+        
+        .intro-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 介绍文字 -->
+    <div class="intro-text" id="intro-text">
+        <h2>treeline field-of-view observations</h2>
+        <p><strong>How to use:</strong></p>
+        <p>• Drag with your mouse to manually rotate and discover different viewpoints.</p>
+        <p>• As you rotate, information cards will appear showing plant density data and field observations from the trail you are on.</p>
+    </div>
+    
+    <!-- 段落1: 0° - 36° -->
+    <div class="container container-top" id="container-1-top">
+        <h3>Plant density:30%</h3>
+        <img src="B-01.png" alt="云杉">
+    </div>
+    <div class="container container-bottom" id="container-1-bottom">
+        <h3>A secret hydrant waiting quietly by the trail.</h3>
+        <img src="A-01.png" alt="A-01" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落2: 36° - 72° -->
+    <div class="container container-top" id="container-2-top">
+        <h3>Plant density:44.7%</h3>
+        <img src="B-02.png" alt="冷杉">
+    </div>
+    <div class="container container-bottom" id="container-2-bottom">
+        <h3>A small branch dreaming of the sky.</h3>
+        <img src="A-02.png" alt="A-02" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落3: 72° - 108° -->
+    <div class="container container-top" id="container-3-top">
+        <h3>Plant density:46.1%</h3>
+        <img src="B-03.png" alt="松树">
+    </div>
+    <div class="container container-bottom" id="container-3-bottom">
+        <h3>You found a branch wearing a coat of lichen.</h3>
+        <img src="A-03.png" alt="A-03" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落4: 108° - 144° -->
+    <div class="container container-top" id="container-4-top">
+        <h3>Plant density:46.3%</h3>
+        <img src="B-04.png" alt="落叶松">
+    </div>
+    <div class="container container-bottom" id="container-4-bottom">
+        <h3>A broken fence stands quietly here.</h3>
+        <img src="A-04.png" alt="A-04" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落5: 144° - 180° -->
+    <div class="container container-top" id="container-5-top">
+        <h3>Plant density:57.6%</h3>
+        <img src="B-05.png" alt="桦树">
+    </div>
+    <div class="container container-bottom" id="container-5-bottom">
+        <h3>Discovery: a post quietly disappearing under green.</h3>
+        <img src="A-05.png" alt="A-05" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落6: 180° - 216° -->
+    <div class="container container-top" id="container-6-top">
+        <h3>Plant density:41.6%</h3>
+        <img src="B-06.png" alt="橡树">
+    </div>
+    <div class="container container-bottom" id="container-6-bottom">
+        <h3>A big flat stone—perfect for sitting, thinking, or pretending to be <br>a mountain.</h3>
+        <img src="A-06.png" alt="A-06" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落7: 216° - 252° -->
+    <div class="container container-top" id="container-7-top">
+        <h3>Plant density:49.5%</h3>
+        <img src="B-07.png" alt="枫树">
+    </div>
+    <div class="container container-bottom" id="container-7-bottom">
+        <h3>A strange little blob resting on the fence.</h3>
+        <img src="A-07.png" alt="A-07" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落8: 252° - 288° -->
+    <div class="container container-top" id="container-8-top">
+        <h3>Plant density:48.6%</h3>
+        <img src="B-08.png" alt="山毛榉">
+    </div>
+    <div class="container container-bottom" id="container-8-bottom">
+        <h3>You spot a pair of stones-one sharp, one round.</h3>
+        <img src="A-08.png" alt="A-08" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落9: 288° - 324° -->
+    <div class="container container-top" id="container-9-top">
+        <h3>Plant density:60.6%</h3>
+        <img src="B-09.png" alt="杉木">
+    </div>
+    <div class="container container-bottom" id="container-9-bottom">
+        <h3>This stump wears years like soft wrinkles.</h3>
+        <img src="A-09.png" alt="A-09" style="width: 100%; height: auto;">
+    </div>
+    
+    <!-- 段落10: 324° - 360° -->
+    <div class="container container-top" id="container-10-top">
+        <h3>Plant density:35.1%</h3>
+        <img src="B-10.png" alt="花旗松">
+    </div>
+    <div class="container container-bottom" id="container-10-bottom">
+        <h3>A fallen tree blocks the trail.</h3>
+        <img src="A-10.png" alt="A-10" style="width: 100%; height: auto;">
+    </div>
+    
+    <script src="sketch.js"></script>
+</body>
+</html>
