@@ -37,6 +37,7 @@ body {
     margin: 0;
     transform-style: preserve-3d;
     overflow: visible;
+    pointer-events: none;
 }
 
 /* Container centers the content */
@@ -50,36 +51,57 @@ body {
     justify-content: center;
     align-items: center;
     overflow: visible;
+    pointer-events: none;
 }
 
 /* Image styling */
 .container img {
     max-width: 80vw;
-    max-height: 70vh;
     width: auto;
     height: auto;
     object-fit: contain;
+    pointer-events: auto;
 }
 
 /* Image alignment classes */
-.align-left {
+.align-left,
+.green-link:has(.align-left) {
     margin-right: auto;
     margin-left: 0;
 }
 
-.align-right {
+.align-right,
+.green-link:has(.align-right) {
     margin-left: auto;
     margin-right: 0;
+}
+
+/* Green link wrapper */
+.green-link {
+    display: inline-block;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.green-link:hover {
+    z-index: 1001;
 }
 
 /* Green image hover effect */
 .green-image {
     transition: filter 0.3s ease;
+    pointer-events: auto;
+    display: block;
+    max-height: 90vh;
 }
 
-.green-image:hover {
+.green-link:hover .green-image {
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 40px rgba(0, 0, 0, 0.6));
+            drop-shadow(0 0 40px rgba(0, 0, 0, 0.6))
+            drop-shadow(0 0 60px rgba(0, 0, 0, 0.4));
     cursor: pointer;
 }
 
@@ -189,13 +211,7 @@ body {
 }
 
 
-/* 2 pGroups between depth-5 and depth-6 - spacing reduced by 10%: 333px -> 300px */
-.pGroup-5-6-1 {
-    transform: translateZ(calc(var(--scroll) - 10968.75px));
-    z-index: 5;
-    opacity: calc(var(--visible) - 61);
-}
-
+/* 1 pGroup between depth-5 and depth-6 */
 .pGroup-5-6-2 {
     transform: translateZ(calc(var(--scroll) - 11681.25px));
     z-index: 4;
