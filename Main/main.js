@@ -3,6 +3,7 @@ window.onload = () => {
     handleScroll();
     setupGreenLinks();
     setupModal();
+    setupTitleTooltip();
 }
 
 window.onscroll = () => handleScroll();
@@ -35,22 +36,48 @@ function setupGreenLinks() {
 function setupModal() {
     const modal = document.getElementById('modal');
     const btn = document.getElementById('modalButton');
-    const span = document.getElementsByClassName('close')[0];
 
     // Open modal when button is clicked
     btn.onclick = function() {
         modal.style.display = 'block';
     }
 
-    // Close modal when X is clicked
-    span.onclick = function() {
-        modal.style.display = 'none';
-    }
-
     // Close modal when clicking outside of it
-    window.onclick = function(event) {
+    modal.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
     }
+}
+
+// Setup title box tooltip
+function setupTitleTooltip() {
+    const titleBox = document.getElementById('titleBox');
+    const tooltip = document.getElementById('titleTooltip');
+
+    // Set credits text for tooltip
+    const creditsText = `Nicole Sun
+Runping Mao-Wei
+Susan He
+for RISD GD DS3.
+
+Typeset in ABCPressura.`;
+
+    tooltip.textContent = creditsText;
+
+    // Show tooltip on hover
+    titleBox.addEventListener('mouseenter', () => {
+        tooltip.style.display = 'block';
+    });
+
+    // Hide tooltip when mouse leaves
+    titleBox.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+    });
+
+    // Move tooltip with cursor (above cursor)
+    titleBox.addEventListener('mousemove', (e) => {
+        tooltip.style.left = (e.clientX + 15) + 'px';
+        tooltip.style.top = (e.clientY - tooltip.offsetHeight - 15) + 'px';
+    });
 }
