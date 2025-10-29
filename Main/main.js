@@ -159,11 +159,12 @@ function setupAmbientSounds() {
         'audio-woodpecker'
     ];
 
-    // Set volume for all audio elements
+    // Set volume for all audio elements and enable autoplay attributes
     soundIds.forEach(id => {
         const audio = document.getElementById(id);
         if (audio) {
             audio.volume = 0.3; // Set to 30% volume
+            audio.muted = false;
         }
     });
 
@@ -178,7 +179,11 @@ function setupAmbientSounds() {
             // Reset audio to beginning and play
             audio.currentTime = 0;
             audio.play().catch(error => {
-                console.log('Audio play prevented:', error);
+                // If autoplay is blocked, try again on first user interaction
+                console.log('Audio autoplay prevented, will retry on interaction:', error);
+                document.addEventListener('click', () => {
+                    audio.play().catch(e => console.log('Retry failed:', e));
+                }, { once: true });
             });
         }
 
@@ -187,13 +192,6 @@ function setupAmbientSounds() {
         setTimeout(playRandomSound, nextInterval);
     }
 
-    // Start playing sounds after a short delay (to allow user interaction first)
-    setTimeout(() => {
-        // Try to start sounds, but only after user has interacted with the page
-        document.addEventListener('click', function startSounds() {
-            playRandomSound();
-            // Remove listener after first click
-            document.removeEventListener('click', startSounds);
-        }, { once: true });
-    }, 1000);
+    // Start playing sounds immediately
+    setTimeout(playRandomSound, 1000);
 }
