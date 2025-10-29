@@ -53,8 +53,8 @@ function setupGreenLinks() {
     const greenLinks = document.querySelectorAll('.green-link');
 
     greenLinks.forEach((link, index) => {
-        // Skip green links that have actual hrefs (tree1green.png at index 0, tree3 green.png at index 3)
-        if (index === 0 || index === 3) {
+        // Skip green links that have actual hrefs (tree1green at index 0, tree3 green at index 3, shrub green B at index 4)
+        if (index === 0 || index === 3 || index === 4) {
             return;
         }
 
