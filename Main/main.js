@@ -4,9 +4,12 @@ window.onload = () => {
     setupGreenLinks();
     setupModal();
     setupTitleTooltip();
+    setupBackToTop();
 }
 
 window.onscroll = () => handleScroll();
+
+let hasShownModal = false;
 
 function handleScroll() {
     const root = document.querySelector(':root');
@@ -16,6 +19,33 @@ function handleScroll() {
 
     // Update --visible variable (controls opacity fade)
     root.style.setProperty('--visible', (Math.floor(window.scrollY - 17000) / -100).toFixed(1));
+
+    // Check if scrolled to bottom
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
+    const clientHeight = window.innerHeight;
+    const scrolledToBottom = scrollTop + clientHeight >= scrollHeight - 10; // 10px threshold
+
+    const greenOverlay = document.getElementById('greenOverlay');
+    const backToTopBtn = document.getElementById('backToTop');
+    const backToTopContainer = backToTopBtn.parentElement;
+    const modal = document.getElementById('modal');
+
+    if (scrolledToBottom) {
+        // Show green overlay
+        greenOverlay.classList.add('active');
+        // Show back to top button container
+        backToTopContainer.classList.add('visible');
+        // Auto-open modal (only once)
+        if (!hasShownModal) {
+            modal.style.display = 'block';
+            hasShownModal = true;
+        }
+    } else {
+        // Hide green overlay and button when not at bottom
+        greenOverlay.classList.remove('active');
+        backToTopContainer.classList.remove('visible');
+    }
 }
 
 // Setup green link interactions
@@ -84,5 +114,20 @@ Typeset in ABCPressura.`;
     titleBox.addEventListener('mousemove', (e) => {
         tooltip.style.left = (e.clientX + 15) + 'px';
         tooltip.style.top = (e.clientY - tooltip.offsetHeight - 15) + 'px';
+    });
+}
+
+// Setup back to top button
+function setupBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+
+    backToTopBtn.addEventListener('click', () => {
+        // Scroll to top smoothly
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        // Reset modal flag so it can show again when reaching bottom
+        hasShownModal = false;
     });
 }
