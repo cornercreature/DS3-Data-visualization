@@ -12,7 +12,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background: #e6e6e6;
-    height: 18000px; /* Total scrollable height like HTML Review */
+    height: 12393.75px; /* End scroll at depth-6 position */
 }
 
 /* Title Box - Fixed in bottom left */
@@ -103,8 +103,10 @@ body {
 
 .modal-title {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 20px;
+    right: 15px;
+    width: 80%;
+    max-width: 600px;
     z-index: 25001;
 }
 
@@ -117,8 +119,8 @@ body {
     line-height: 1;
     color: #000;
     background-color: #fff;
-    padding: 5px 5px 8px 5px;
-    border: 3px solid #000;
+    padding: 5px;
+    border: 2px solid #000;
     width: fit-content;
 }
 
@@ -126,7 +128,7 @@ body {
     background-color: white;
     position: absolute;
     top: 56px;
-    left: 15px;
+    right: 15px;
     padding: 20px 20px 20px 20px;
     border: 2px solid black;
     width: 80%;
