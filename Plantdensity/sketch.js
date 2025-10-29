@@ -142,20 +142,6 @@ function draw() {
 	
 	// 初始自动旋转一圈
 	if (autoRotate && !rotationComplete) {
-		// 在开始旋转时显示介绍文字
-		if (rotationAngle === 0) {
-			const introText = document.getElementById('intro-text');
-			if (introText) {
-				introText.classList.add('active');
-				// 10秒后自动隐藏介绍文字
-				setTimeout(() => {
-					if (introText) {
-						introText.classList.remove('active');
-					}
-				}, 10000);
-			}
-		}
-		
 		rotationAngle += rotationSpeed;
 		
 		// 检查是否完成一圈
@@ -221,9 +207,6 @@ function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
-function keyPressed(){
-  save("img_" + month() + '-' + day() + '_' + hour() + '-' + minute() + '-' + second() + ".jpg");
-}
 
 function parsePointCloud(data, scale, xAdd, yAdd, zAdd) {
 	let lines = data.split("\n");
