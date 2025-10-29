@@ -101,10 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function positionCard(pin, popup) {
     // 移除所有之前的位置类
     popup.classList.remove('position-top', 'position-bottom', 'position-left', 'position-right');
-    
+
     // 获取pin的位置信息（相对于视口）
     const pinRect = pin.getBoundingClientRect();
-    
+
+    // Check if this pin has a custom offset (for mashapaug)
+    const pinName = pin.getAttribute('data-pin');
+    const customOffset = pinName === 'mashapaug' ? -290 : 0;
+    console.log('Pin:', pinName, 'Offset:', customOffset);
+
     // 先临时显示以获得真实尺寸
     popup.style.visibility = 'hidden';
     popup.style.opacity = '0';
@@ -112,19 +117,19 @@ function positionCard(pin, popup) {
     popup.style.display = 'block';
     const popupRect = popup.getBoundingClientRect();
     popup.style.display = '';
-    
+
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const SAFE = 12; // 安全边距
-    
+
     // 重置内联定位（用于fixed定位）
     popup.style.top = '';
     popup.style.bottom = '';
     popup.style.left = '';
     popup.style.right = '';
-    
+
     let left, top;
-    
+
     // 默认优先显示在右侧
     if (pinRect.right + 15 + popupRect.width > viewportWidth) {
         // 右侧空间不够，尝试左侧
@@ -144,16 +149,21 @@ function positionCard(pin, popup) {
         // 垂直居中于pin
         top = pinRect.top + (pinRect.height / 2) - (popupRect.height / 2);
     }
-    
+
     // 边界夹取：确保不超出视口
     const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
-    
+
     // 水平边界
     left = clamp(left, SAFE, viewportWidth - popupRect.width - SAFE);
-    
-    // 垂直边界
-    top = clamp(top, SAFE, viewportHeight - popupRect.height - SAFE);
-    
+
+    // Apply custom offset AFTER initial positioning but allow it to go off-screen if needed
+    top += customOffset;
+
+    // 垂直边界- but allow custom offset to override if it goes above
+    if (customOffset === 0) {
+        top = clamp(top, SAFE, viewportHeight - popupRect.height - SAFE);
+    }
+
     // 设置fixed定位
     popup.style.left = left + 'px';
     popup.style.top = top + 'px';
@@ -189,5 +199,28 @@ window.addEventListener('resize', function() {
         const visible = popup && (popup.style.visibility === 'visible' || getComputedStyle(popup).visibility === 'visible');
         if (visible) positionCard(pin, popup);
     });
+});
+
+// Setup modal functionality
+function setupModal() {
+    const modal = document.getElementById('modal');
+    const btn = document.getElementById('modalButton');
+
+    // Open modal when button is clicked
+    btn.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    // Close modal when clicking outside of it
+    modal.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+
+// Call modal setup when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    setupModal();
 });
 

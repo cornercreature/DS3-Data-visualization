@@ -138,7 +138,7 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    background-image: url('images/1.jpg');
+    background-image: url('images/1_2.png');
     background-size: cover;
     background-position: center;
     overflow: visible;
@@ -162,7 +162,7 @@ body {
     height: 40px;
     background-color: #FE5933;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 2px solid white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
@@ -321,17 +321,96 @@ body {
         width: min(92vw, 560px);
         max-height: 70vh;
     }
-    
+
     .popup-card h2 {
         font-size: 24px;
     }
-    
+
     .popup-card p {
         font-size: 16px;
     }
-    
+
     .pin-label {
         font-size: 12px;
     }
+}
+
+/* ==========================================================================
+   MODAL STYLES
+   ========================================================================== */
+
+/* Modal Button - Fixed white circle in bottom right */
+.modal-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid white;
+    cursor: pointer;
+    z-index: 20000;
+    transition: transform 0.2s ease;
+}
+
+.modal-button:hover {
+    transform: scale(1.1);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 25000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-title {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 80%;
+    max-width: 600px;
+    z-index: 25001;
+}
+
+.modal-title h3 {
+    font-family: 'GT Pressura Extended Medium', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 1;
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    border: 2px solid #000;
+    width: fit-content;
+    margin: 0;
+}
+
+.modal-content {
+    background-color: white;
+    position: absolute;
+    top: 56px;
+    right: 15px;
+    padding: 20px 20px 20px 20px;
+    border: 2px solid black;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-family: 'GT Pressura Regular', sans-serif;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    font-family: 'GT Pressura Regular', sans-serif;
 }
 

@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Modal button in bottom right corner -->
+    <button id="modalButton" class="modal-button"></button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-title">
+            <h3>About</h3>
+        </div>
+        <div class="modal-content">
+            <p>This interactive map highlights green spaces in Providence, Rhode Island that have been lost or significantly altered over time due to human activity.</p>
+            <br>
+            <p><strong>How to use:</strong> Hover over or click the orange pins to see images and learn about each location. These spaces represent the environmental impact of urbanization on our city's natural landscape.</p>
+            <br>
+            <p>Understand how much influence human life, urban development and city governing has over the state of our green spaces.</p>
+        </div>
+    </div>
+
     <!-- Intro Animation -->
     <div class="intro-screen" id="intro-screen">
         <div class="intro-text">
@@ -63,7 +80,7 @@
             </div>
         </div>
 
-        <div class="pin" data-pin="waterfront" style="left: 77%; top: 23%;">
+        <div class="pin" data-pin="waterfront" style="left: 77%; top: calc(23% + 50px);">
             <div class="pin-dot"></div>
             <div class="popup-card">
                 <img src="images/A (dragged) 2.jpg" alt="Allens Avenue Industrial Waterfront">
