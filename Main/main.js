@@ -30,6 +30,7 @@ function handleScroll() {
     const backToTopBtn = document.getElementById('backToTop');
     const backToTopContainer = backToTopBtn.parentElement;
     const modal = document.getElementById('modal');
+    const navBox = document.getElementById('navBox');
 
     if (scrolledToBottom) {
         // Show green overlay
@@ -39,6 +40,7 @@ function handleScroll() {
         // Auto-open modal (only once)
         if (!hasShownModal) {
             modal.style.display = 'block';
+            navBox.classList.add('visible');
             hasShownModal = true;
         }
     } else {
@@ -71,16 +73,19 @@ function setupGreenLinks() {
 function setupModal() {
     const modal = document.getElementById('modal');
     const btn = document.getElementById('modalButton');
+    const navBox = document.getElementById('navBox');
 
     // Open modal when button is clicked
     btn.onclick = function() {
         modal.style.display = 'block';
+        navBox.classList.add('visible');
     }
 
     // Close modal when clicking outside of it
     modal.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
+            navBox.classList.remove('visible');
         }
     }
 }

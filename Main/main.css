@@ -15,6 +15,92 @@ body {
     height: 12393.75px; /* End scroll at depth-6 position */
 }
 
+/* Navigation Box - Fixed in top left (shown only when modal is open) */
+.nav-box {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    z-index: 26000;
+}
+
+.nav-box.visible {
+    display: flex;
+}
+
+.nav-text {
+    /* Typography */
+    font-family: "GT-Pressura-Extended-Medium-Trial", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 1;
+
+    /* Colors */
+    color: #000;
+    background-color: #fff;
+
+    /* Spacing */
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-bottom: -3px;
+
+    /* Border */
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    /* Layout */
+    width: fit-content;
+    max-width: 100%;
+    position: relative;
+
+    /* Link styling */
+    text-decoration: none;
+    cursor: pointer;
+
+    /* Transition for smooth hover effect */
+    transition: background-color 0.2s ease;
+}
+
+.nav-text:last-child {
+    margin-bottom: 0;
+}
+
+.nav-text:hover {
+    background-color: #d4ff00;
+}
+
+/* Individual positioning for each nav box */
+.nav-text:nth-child(1) {
+    /* ① Plant Density */
+}
+
+.nav-text:nth-child(2) {
+    /* ② Sound */
+}
+
+.nav-text:nth-child(3) {
+    /* ③ Invasive Species */
+    top: 1px;
+}
+
+.nav-text:nth-child(4) {
+    /* ④ Soil Erosion */
+    top: 2px;
+}
+
+.nav-text:nth-child(5) {
+    /* ⑤ Lost Green Spaces */
+    top: 3px;
+}
+
 /* Title Box - Fixed in bottom left */
 .title-box {
     position: fixed;
