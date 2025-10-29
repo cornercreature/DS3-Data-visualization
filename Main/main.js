@@ -5,6 +5,7 @@ window.onload = () => {
     setupModal();
     setupTitleTooltip();
     setupBackToTop();
+    setupAmbientSounds();
 }
 
 window.onscroll = () => handleScroll();
@@ -135,4 +136,64 @@ function setupBackToTop() {
         // Reset modal flag so it can show again when reaching bottom
         hasShownModal = false;
     });
+}
+
+// Setup ambient sounds to play sporadically
+function setupAmbientSounds() {
+    // Array of all audio element IDs
+    const soundIds = [
+        'audio-airplane',
+        'audio-bike',
+        'audio-bird',
+        'audio-car2',
+        'audio-children',
+        'audio-dog-bark',
+        'audio-dogs-walking',
+        'audio-duck',
+        'audio-footstep',
+        'audio-insect',
+        'audio-leaves',
+        'audio-siren',
+        'audio-squirrel',
+        'audio-talking',
+        'audio-woodpecker'
+    ];
+
+    // Set volume for all audio elements
+    soundIds.forEach(id => {
+        const audio = document.getElementById(id);
+        if (audio) {
+            audio.volume = 0.3; // Set to 30% volume
+        }
+    });
+
+    // Function to play a random sound
+    function playRandomSound() {
+        // Get a random sound ID
+        const randomIndex = Math.floor(Math.random() * soundIds.length);
+        const randomSoundId = soundIds[randomIndex];
+        const audio = document.getElementById(randomSoundId);
+
+        if (audio) {
+            // Reset audio to beginning and play
+            audio.currentTime = 0;
+            audio.play().catch(error => {
+                console.log('Audio play prevented:', error);
+            });
+        }
+
+        // Schedule next sound after a random interval (3-10 seconds)
+        const nextInterval = Math.random() * 7000 + 3000; // 3000-10000ms
+        setTimeout(playRandomSound, nextInterval);
+    }
+
+    // Start playing sounds after a short delay (to allow user interaction first)
+    setTimeout(() => {
+        // Try to start sounds, but only after user has interacted with the page
+        document.addEventListener('click', function startSounds() {
+            playRandomSound();
+            // Remove listener after first click
+            document.removeEventListener('click', startSounds);
+        }, { once: true });
+    }, 1000);
 }
